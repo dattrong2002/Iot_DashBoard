@@ -1,0 +1,588 @@
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.082);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9c3;
+  
+    --color-insight-1: rgb(99, 209, 35);
+    --color-insight-2: rgb(233, 245, 59);
+    --color-insight-3: rgb(204, 52, 67);
+    --color-insight-4: rgb(56, 183, 238);
+  
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+  
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+  
+    --box-shadow: 0 2rem 3rem var(--color-light);
+  
+    /* Plotly Chart Color */
+    --chart-background: #fff;
+    --chart-font-color: #444;
+    --chart-axis-color: #444;
+  }
+body {
+    height:  100%;
+    background-color: #e1f4ed;
+    font-family: poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid; /* Sử dụng Grid */
+    grid-template-columns: 0.15fr 0.8fr; /* Chia thành 2 cột */
+    gap : 30px;
+}
+
+.tab.active.container {
+    width: 100%; /* Giới hạn chiều rộng */
+    height: auto; /* Hoặc bạn có thể đặt một chiều cao cụ thể, ví dụ: height: 500px */
+    margin: 0 auto; /* Căn giữa container */
+    padding: 20px; /* Điều chỉnh khoảng cách padding nếu cần */
+}
+.container {
+    background-color: #f9f6f636;
+    margin-right: 0px;
+    width: 1350px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    grid-template-columns: 7rem auto 23rem;
+}
+
+.info1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width : 1200px;
+}
+
+.info-box {
+    display: flex;
+    flex-direction: column; /* Sắp xếp theo cột */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    background: #ffffff;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+main{
+    margin-left: 12px;
+}
+.aside sidebar {
+
+    width: 130px;
+    height: 100%; /* 100% chiều cao của viewport */
+    background: #fff;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    justify-content: space-between; /* Đảm bảo nội dung bên trong được giãn cách hợp lý */
+    box-shadow: var(--box-shadow);
+    text-align: left; 
+    background: #893f3f;
+}
+aside{
+    margin-bottom: 40px;
+    margin-top: 40px;
+    min-height: 100vh;
+    width: 190px;
+    background: #fafafa;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+.info-box p {
+    font-size: 1.5rem; /* Điều chỉnh kích thước chữ */
+    /*margin: 20px 0 0 0; /* Tạo khoảng cách từ icon tới giá trị */
+    line-height: 1; /* Khoảng cách giữa các dòng */
+    color: #333; /* Thay đổi màu chữ nếu cần */
+    font-weight: bold; /* Làm chữ đậm */
+    display: inline-block; /* Làm cho thẻ vừa khít với nội dung */
+    height : 20px;
+} 
+.title-container {
+    display: flex; /* Sử dụng flexbox để căn chỉnh icon và h2 */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center;
+    height: 50px;
+}
+.title-sidebar{
+    margin-left: 10px;
+    margin-top: 70px;
+    display: flex; /* Sử dụng flexbox để căn chỉnh icon và h2 */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center;
+    height: 50px;
+    margin-bottom: 70px;
+    width: 110px;
+}
+.title-sidebar h2{
+    margin-bottom: 25px;
+}
+/* .sidebar */
+#tab2.tab.active  {
+    background: #fff;
+    padding: 40px;
+    text-align: left;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    border-radius: 20px;
+}
+#tab3.tab.active  {
+    background: #fff;
+    padding: 40px;
+    text-align: left;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    border-radius: 20px;
+}
+.table {
+    display: flex; /* Sử dụng flexbox để căn chỉnh icon và h2 */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: flex-start; /* Đẩy nội dung về phía bên trái */
+    margin-left: 5px; /* Đảm bảo không có khoảng trống bên trái */
+    padding-left: 0; /* Nếu muốn có một chút khoảng trống nhỏ giữa icon và cạnh trái */
+    height: 50px;
+    width: 170px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    border-radius: 7px;
+}
+.table:hover {
+    background-color: #e0e0e0;  /* Hiệu ứng hover */
+}
+
+/* CSS cho tab khi được chọn */
+.table.active {
+    background-color:rgb(56, 183, 238);;
+    color: white;
+}
+
+.table.active h2 {
+    color: white;
+}
+
+.table.active .icon-sidebar span {
+    color: white;  /* Đổi màu icon khi tab được chọn */
+}
+
+
+
+
+.icon {
+    display: inline-flex; /* Sử dụng inline-flex để căn chỉnh theo hàng ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    width: 30px; /* Đặt chiều rộng cố định (hoặc phù hợp với kích thước biểu tượng của bạn) */
+    height: 30px; /* Đặt chiều cao cố định (phù hợp với kích thước biểu tượng) */
+    font-size: 20px; /* Kích thước biểu tượng */
+    margin-left: 10px; /* Khoảng cách giữa chữ và icon */
+}
+.icon span {
+    font-size: 35px; /* Kích thước biểu tượng */
+    line-height: 1; /* Đảm bảo không có khoảng cách thêm giữa các dòng */
+}
+
+.info h2 {
+    display: flex;             /* Thiết lập Flexbox */
+    justify-content: center;   /* Căn giữa theo chiều ngang */
+    align-items: center;       /* Căn giữa theo chiều dọc */
+    height: 100px;             /* Chiều cao của thẻ h2 */
+    width : 150px;
+    margin: 0;                 /* Loại bỏ margin */
+    font-size: 1.5rem;
+    font-family: poppins, sans-serif;
+    color: var(--color-dark-variant);
+}
+
+.chart-toggle-container {
+    display: flex; /* Sắp xếp các phần tử theo hàng ngang */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    margin-top: 20px; /* Khoảng cách giữa phần biểu đồ và phần cảm biến */
+    gap : 20px;
+    width : 1200px;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+    height: 540px ;
+}
+
+.chart-container1 {
+    margin-left: 30px;
+    margin-right: 0px; /* Khoảng cách giữa biểu đồ và các nút chuyển */
+    overflow: hidden; /* Ẩn phần tràn */
+    width: 800px; /* Đảm bảo chiều rộng 100% */
+    height: 500px; /* Đặt chiều cao cho container */
+}
+.chart-container2 {
+    margin-left: 30px;
+    margin-right: 0px; /* Khoảng cách giữa biểu đồ và các nút chuyển */
+    overflow: hidden; /* Ẩn phần tràn */
+    width: 800px; /* Đảm bảo chiều rộng 100% */
+    height: 500px; /* Đặt chiều cao cho container */
+}
+.toggle-switch-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Tăng khoảng cách giữa các toggle switch */
+}
+.toggle-switch {
+    display: flex;
+    align-items: flex;;
+    gap: 10px;
+    width : 120px
+}
+
+.toggle-switch label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.toggle-switch .slider {
+    width: 44px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 34px;
+    position: relative;
+    transition: .4s;
+    margin-left: 10px;
+}
+
+.toggle-switch .slider:before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    left: 2px;
+    bottom: 2px;
+    transition: .4s;
+}
+.toggle-switch p {
+    font-size: 1rem; /* Điều chỉnh kích thước chữ */
+    color: #333; /* Thay đổi màu chữ nếu cần */
+    font-weight: bold; /* Làm chữ đậm */
+    height : 20px;
+}
+.toggle-switch input:checked + .slider {
+    background-color: #4caf50;
+}
+
+.toggle-switch input:checked + .slider:before {
+    transform: translateX(14px);
+}
+.toggle-switch i {
+    font-size: 20px; /* Thay đổi kích thước biểu tượng nếu cần */
+    color: grey;
+    margin-left: 10px; /* Khoảng cách giữa công tắc và biểu tượng bóng đèn */
+}
+#switch-status, #switch-status-fan {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.chart-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Thay đổi kích thước theo ý muốn */
+    width : 900px;
+    margin-bottom: 20px;
+}
+
+#myChart {
+    width: 100%;
+    max-width: 1200px; /* Điều chỉnh kích thước tối đa */
+    height: 100%;
+}
+/* Container chính cho phần warning light */
+.warning-light-container {
+    display: flex;
+    justify-content: center; /* Căn giữa container theo chiều ngang */
+    align-items: center;     /* Căn giữa theo chiều dọc */
+    background-color: #f8d7da; /* Màu nền nhạt cho cảnh báo */
+    border: 2px solid #f5c6cb; /* Viền màu nhạt tương ứng với nền */
+    border-radius: 10px;       /* Bo tròn các góc */
+    padding: 20px;             /* Khoảng cách bên trong container */
+    margin: 20px;              /* Khoảng cách ngoài container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho container */
+    max-width: 400px;          /* Giới hạn chiều rộng của container */
+}
+
+/* Phần chứa nội dung đèn cảnh báo */
+.warning-light {
+    text-align: center;         /* Căn giữa nội dung */
+}
+
+/* Phong cách cho hình ảnh đèn cảnh báo */
+.warning-light img {
+    width: 90px;                /* Chiều rộng của icon */
+    height: 90px;               /* Chiều cao của icon */
+    margin-bottom: 10px;        /* Khoảng cách giữa icon và chữ */
+}
+
+/* Phong cách cho văn bản trạng thái cảnh báo */
+.warning-status {
+    font-size: 18px;            /* Kích thước chữ */
+    font-weight: bold;          /* Chữ in đậm */
+    color: #721c24;             /* Màu chữ đậm cho cảnh báo */
+    margin: 0;                  /* Loại bỏ margin mặc định */
+}
+
+
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+/* CSS cho bảng */
+/* Đặt các bảng theo chiều ngang */
+.led-tables-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.led-table {
+    width: 32%; /* Mỗi bảng chiếm 1/3 chiều rộng */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+th.col-id, td.col-id {
+    width: 5%;  /* Cột ID chỉ chiếm 5% */
+}
+
+/* Tăng kích thước của cột Timestamp */
+th.col-timestamp, td.col-timestamp {
+    width: 30%;  /* Cột Timestamp chiếm 30% */
+}
+#tab3 table {
+    width: 80%;
+    margin: 0 auto;
+}
+#tab3 th.col-id, td.col-id {
+    width: 5%;  /* Cột ID chỉ chiếm 5% */
+}
+#tab3 th.Timestamp, td.Timestamp {
+    width: 40%;  /* Cột ID chỉ chiếm 5% */
+}
+/* Định dạng cho tiêu đề của mỗi bảng */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* #pagination button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#pagination button.active {
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+} */
+/* Căn giữa các nút phân trang */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Tạo khoảng cách giữa các nút */
+.pagination-container button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Khi di chuột qua nút */
+.pagination-container button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Nút đang được chọn (trang hiện tại) */
+.pagination-container button.active {
+    background-color: #4CAF50;
+    color: white;
+    cursor: default;
+}
+
+/* Nút không thể click (disabled) */
+.pagination-container button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+}
+
+
+.pagination-container2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Tạo khoảng cách giữa các nút */
+.pagination-container2 button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Khi di chuột qua nút */
+.pagination-container2 button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Nút đang được chọn (trang hiện tại) */
+.pagination-container2 button.active {
+    background-color: #4CAF50;
+    color: white;
+    cursor: default;
+}
+
+/* Nút không thể click (disabled) */
+.pagination-container2 button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+}
+.input-container {
+    display: flex;               /* Sử dụng Flexbox */
+    align-items: center;        /* Căn giữa theo chiều dọc */
+    gap: 10px;                  /* Khoảng cách giữa các ô nhập */
+    margin-bottom: 20px;        /* Khoảng cách dưới cùng */
+}
+
+.input-container input[type="datetime-local"] {
+
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.input-container input[type="datetime-local"] {
+    padding-left: 8px;
+    font-family: monospace;
+    color: #555;
+}
+
+/* Giữ nguyên các thuộc tính CSS cho ô nhập và nút lọc từ trước */
+input[type="text"],
+input[type="number"] {
+    width: 150px;               /* Chiều rộng ô nhập */
+    padding: 8px;               /* Khoảng cách bên trong */
+    border: 1px solid #ccc;     /* Đường viền */
+    border-radius: 4px;         /* Góc bo tròn */
+    font-size: 14px;            /* Kích thước chữ */
+}
+
+#filterButton {
+    padding: 10px 15px;         /* Khoảng cách bên trong */
+    background-color: #4CAF50;  /* Màu nền */
+    color: white;                /* Màu chữ */
+    border: none;                /* Không có đường viền */
+    border-radius: 4px;         /* Góc bo tròn */
+    cursor: pointer;             /* Con trỏ khi hover */
+    font-size: 14px;             /* Kích thước chữ */
+}
+#filterButton,
+#backButton, #backButton2 {                  /* Áp dụng kiểu cho cả nút Lọc và Back */
+    padding: 10px 15px;         /* Khoảng cách bên trong */
+    background-color: #4CAF50;  /* Màu nền */
+    color: white;               /* Màu chữ */
+    border: none;               /* Không có đường viền */
+    border-radius: 4px;         /* Góc bo tròn */
+    cursor: pointer;            /* Con trỏ khi hover */
+    font-size: 14px;            /* Kích thước chữ */
+    margin-left: 10px;          /* Khoảng cách giữa các nút */
+}
+
+#backButton ,#backButton2 {
+    background-color: #f44336;  /* Đổi màu nền nút Back sang đỏ */
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-container button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}

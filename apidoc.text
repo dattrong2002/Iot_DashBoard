@@ -1,0 +1,152 @@
+
+1. Get Sensor Data
+•	Endpoint: /api/sensor-data
+•	Method: GET
+•	Description: Lấy dữ liệu sensor mới nhất.
+•	Request Parameters: None
+•	Response:
+json
+{
+    "id": 1,
+    "temperature": 25.6,
+    "humidity": 40.5,
+    "light": 300,
+    "dust": 45.3,
+    "timestamp": "2024-10-29 14:22:35"
+}
+•	Error Response:
+o	500: Internal server error.
+json
+{"error": "Error message"}
+________________________________________
+2. Get Sensor Data with Pagination
+•	Endpoint: /api/sensor_stastic
+•	Method: GET
+•	Description: Lấy dữ liệu cảm biến với phân trang.
+•	Request Parameters:
+o	page (optional, int, default=1): Trang dữ liệu.
+o	limit (optional, int, default=10): Số bản ghi trên mỗi trang.
+•	Response:
+•	
+json{
+    "sensorData": [
+        {
+            "id": 1,
+            "temperature": 25.6,
+            "humidity": 40.5,
+            "light": 300,
+            "dust": 45.3,
+            "timestamp": "2024-10-29 14:22:35"
+        }
+    ],
+    "totalPages": 5,
+    "currentPage": 1
+}
+•	Error Response:
+o	500: Failed to fetch sensor data.
+json
+{"message": "Failed to fetch sensor data!"}
+________________________________________
+3. Get LED Data with Pagination
+•	Endpoint: /api/led_stastic
+•	Method: GET
+•	Description: Lấy dữ liệu LED với phân trang.
+•	Request Parameters:
+o	page (optional, int, default=1): Trang dữ liệu.
+o	limit (optional, int, default=10): Số bản ghi trên mỗi trang.
+•	Response:
+
+
+json
+{
+    "ledData": [
+        {
+            "ID": 1,
+            "Device": "LED1",
+            "Status": "ON",
+            "timestamp": "2024-10-29 14:22:35"
+        }
+    ],
+    "totalPages": 5,
+    "currentPage": 1
+}
+•	Error Response:
+o	500: Failed to fetch LED data.
+json
+Sao chép mã
+{"message": "Failed to fetch led data!"}
+________________________________________
+4. Search Sensor Data by Timestamp
+•	Endpoint: /api/sensor_data_search
+•	Method: GET
+•	Description: Tìm kiếm dữ liệu sensor theo thời gian.
+•	Request Parameters:
+o	timestamp (required, string): Thời gian cần tìm kiếm theo định dạng YYYY-MM-DD HH:MM:SS.
+•	Response:
+
+
+json
+{
+    "sensorData": {
+        "id": 1,
+        "temperature": 25.6,
+        "humidity": 40.5,
+        "light": 300,
+        "dust": 45.3,
+        "timestamp": "2024-10-29 14:22:35"
+    }
+}
+•	Error Response:
+o	404: No data found for the specified timestamp.
+{"message": "No data found for the specified timestamp"}
+o	500: Internal server error.
+json
+{"error": "Error message"}
+________________________________________
+5. Search LED Data by Timestamp
+•	Endpoint: /api/led_data_search
+•	Method: GET
+•	Description: Tìm kiếm dữ liệu LED theo thời gian với phân trang.
+•	Request Parameters:
+o	timestamp (optional, string): Thời gian cần tìm kiếm theo định dạng YYYY-MM-DD HH:MM:SS.
+o	page (optional, int, default=1): Trang dữ liệu.
+o	limit (optional, int, default=10): Số bản ghi trên mỗi trang.
+•	Response:
+
+json
+{
+    "ledData": [
+        {
+            "ID": 1,
+            "Device": "LED1",
+            "Status": "ON",
+            "timestamp": "2024-10-29 14:22:35"
+        }
+    ],
+    "totalPages": 5,
+    "currentPage": 1
+}
+•	Error Response:
+o	500: Internal server error.
+json
+{"error": "Error message"}
+________________________________________
+6. Get LED 3 Status (Commented Out)
+•	Endpoint: /api/led3_status
+•	Method: GET
+•	Description: Lấy trạng thái của thiết bị cảnh báo "Warning Led".
+•	Request Parameters: None
+•	Response:
+json
+{
+    "Device": "Warning Led",
+    "status": "ON"
+}
+•	Error Response:
+o	404: Device 'led3' not found.
+json
+{"error": "Device 'led3' not found"}
+o	500: Internal server error.
+json
+{"error": "Error message"}
+
